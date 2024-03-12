@@ -19,7 +19,7 @@ export class Confirmation implements IConfirmation {
     tax: number
   ) {
     this.uuid = uuidv4();
-    this.confirmationDate = new Date.now();
+    this.confirmationDate = new Date();
     this.customer = customer;
     this.purchaseItems = purchaseItems;
     this.total = total;

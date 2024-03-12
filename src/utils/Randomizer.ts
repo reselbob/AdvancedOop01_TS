@@ -13,7 +13,6 @@ export class Randomizer {
     const lastName = faker.person.lastName();
     const email = `${firstName}.${lastName}@${faker.internet.domainName()}`;
     const phoneNumber = faker.phone.number();
-    const creditCard = faker.finance.creditCardNumber();
     const address = this.getRandomAddress();
 
     return {
@@ -31,22 +30,22 @@ export class Randomizer {
 
   public static getRandomAddress(): IAddress {
     return {
-      address1: faker.address.streetAddress(),
-      address2: faker.address.secondaryAddress(),
-      city: faker.address.city(),
-      stateProvince: faker.address.state(),
-      postalCode: faker.address.zipCode(),
+      address1: faker.location.streetAddress(),
+      address2: faker.location.secondaryAddress(),
+      city: faker.location.city(),
+      stateProvince: faker.location.state(),
+      postalCode: faker.location.zipCode(),
       country: 'USA',
     };
   }
 
   public static getRandomEmployee(): IEmployee {
+    const employeeId = uuidv4();
     const person = this.getRandomPerson();
     const hireDate = faker.date.past();
     const title = faker.name.jobTitle();
     const department = faker.commerce.department();
-    const salary = faker.finance.amount();
-    const employeeId = uuidv4();
+    const salary = this.getRandomNumber(80, 200000);
 
     return {
       employeeId,
@@ -70,10 +69,10 @@ export class Randomizer {
   }
 
   public static getRandomCompany(): ICompany {
-    const name = faker.company.name();
+    const companyName = faker.company.name();
     const address = this.getRandomAddress();
     const company = {
-      name,
+      companyName,
       address,
     } as ICompany;
     return company;
@@ -81,12 +80,18 @@ export class Randomizer {
 
   public static getRandomPurchaseItem(): IPurchaseItem {
     const name = faker.commerce.productName();
-    const price = faker.commerce.price();
+    const price = this.getRandomNumber(1, 10);
+    const vendor = this.getRandomCompany();
+    const currency = 'USD';
+    const description = faker.commerce.productDescription();
     const quantity = this.getRandomNumber(1, 10);
     const purchaseItem = {
       name,
       price,
       quantity,
+      vendor,
+      currency,
+      description,
     } as IPurchaseItem;
     return purchaseItem;
   }

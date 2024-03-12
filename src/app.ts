@@ -1,17 +1,15 @@
-// Create a new instance of the Airline, Hotel and CarRental classes in the App.ts file.
-// can call the reserve method on each instance and log the result to the console.
-
-
 import {Randomizer} from './utils/Randomizer';
-
-// Create an array named compensations that can hold the compensate() methods of the IReservation implementations
-const compensations: Array<() => Promise<void>> = [];
-
-const customer = Randomizer.getRandomCustomer();
+import {ShoppingCartImpl} from './commerce/classes/ShoppingCartImpl';
 
 (async () => {
   try {
-    //const confirmation = await airlineReservation.reserve(customer);
+    const customer = Randomizer.getRandomCustomer();
+    const shoppingCart = new ShoppingCartImpl(customer);
+    const purchaseItem = Randomizer.getRandomPurchaseItem();
+    shoppingCart.addPurchaseItem(purchaseItem);
+    const confirmation = shoppingCart.checkout();
+    console.log(confirmation);
+
     //console.log(confirmation);
   } catch (e: any) {
     console.error(e.message);
