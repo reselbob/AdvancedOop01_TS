@@ -1,0 +1,41 @@
+{
+  "name": "d",
+  "version": "1.0.0",
+  "description": "A project that describes some advanced object oriented programming techniques using TypeScript",
+  "main": "./src/app.ts",
+  "scripts": {
+    "start": "npx ts-node ./src/app.ts",
+    "test": "test",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reselbob/SimpleSaga.git"
+  },
+  "keywords": [
+    "saga"
+  ],
+  "author": "Bob Reselman <reselbob@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reselbob/SimpleSaga/issues"
+  },
+  "homepage": "https://github.com/reselbob/SimpleSaga#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "20.8.2",
+    "gts": "^5.2.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.8",
+    "node-emoji": "^2.1.3",
+    "uuid": "^9.0.1"
+  }
+}
