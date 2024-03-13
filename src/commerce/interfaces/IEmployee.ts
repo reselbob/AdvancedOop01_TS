@@ -1,4 +1,4 @@
-import {IPerson} from './IPerson';
+import {IPerson} from '../../common/IPerson';
 
 export interface IEmployee extends IPerson {
   employeeId: string;

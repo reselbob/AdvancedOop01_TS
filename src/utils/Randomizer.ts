@@ -1,5 +1,5 @@
 import {faker} from '@faker-js/faker';
-import {IPerson} from '../commerce/interfaces/IPerson';
+import {IPerson} from '../common/IPerson';
 import {IAddress} from '../commerce/interfaces/IAddress';
 import {IEmployee} from '../commerce/interfaces/IEmployee';
 import {v4 as uuidv4} from 'uuid';
@@ -94,5 +94,9 @@ export class Randomizer {
       description,
     } as IPurchaseItem;
     return purchaseItem;
+  }
+
+  public static getRandomMessage(): string {
+    return faker.hacker.phrase();
   }
 }

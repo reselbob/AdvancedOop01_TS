@@ -1,4 +1,4 @@
-import {IAddress} from './IAddress';
+import {IAddress} from '../commerce/interfaces/IAddress';
 
 export interface IPerson {
   firstName: string;
