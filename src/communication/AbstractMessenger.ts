@@ -1,15 +1,17 @@
 import {IMessenger} from './IMessenger';
 import {IPerson} from '../common/IPerson';
-import {ILogEntry} from "../common/ILogEntry";
 
-
-export abstract class AbstractMessenger<T> implements IMessenger {
-  user: IPerson;
-  messages: Array<T>;
+export abstract class AbstractMessenger<T> implements IMessenger<T> {
+  public readonly user: IPerson;
+  public readonly messages: Array<T>;
 
   constructor(user: IPerson) {
     this.user = user;
     this.messages = new Array<T>();
+  }
+
+  public getUser(): IPerson {
+    return this.user;
   }
 
   public abstract getMessages(): Array<T>;
