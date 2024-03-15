@@ -9,12 +9,8 @@ export class SMSMessenger extends AbstractMessenger<ISMSLogEntry> {
     this.logMessage(message);
   }
 
-  getMessages(): Array<ISMSLogEntry> {
-    return this.messages;
-  }
-
-  logMessage(message: string): void {
-    this.messages.push({
+  private logMessage(message: string): void {
+    this.logEntries.push({
       timestamp: new Date(),
       message,
       phoneNumber: this.user.phoneNumber,

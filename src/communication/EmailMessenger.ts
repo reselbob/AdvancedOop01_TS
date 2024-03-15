@@ -7,15 +7,11 @@ export class EmailMessenger extends AbstractMessenger<IEmailLogEntry> {
     this.logMessage(message);
   }
 
-  logMessage(message: string): void {
-    this.messages.push({
+  private logMessage(message: string): void {
+    this.logEntries.push({
       timestamp: new Date(),
       message,
       emailAddress: this.user.email,
     });
-  }
-
-  getMessages(): Array<IEmailLogEntry> {
-    return this.messages;
   }
 }
