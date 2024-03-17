@@ -1,6 +1,7 @@
 import {faker} from '@faker-js/faker';
-import {IPerson} from '../common/IPerson';
-import {IAddress} from '../common/IAddress';
+import {v4 as uuidv4} from 'uuid';
+import {IPerson} from '../document/interfaces/IPerson';
+import {IAddress} from '../document/interfaces/IAddress';
 
 export class Randomizer {
   public static getRandomPerson(): IPerson {
@@ -8,6 +9,7 @@ export class Randomizer {
     const lastName = faker.person.lastName();
 
     return {
+      id: uuidv4(),
       firstName,
       lastName,
       email: `${firstName}.${lastName}@${faker.internet.domainName()}`,

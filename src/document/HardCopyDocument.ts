@@ -1,5 +1,5 @@
 import {AbstractDocument} from './AbstractDocument';
-import {ILogEntry} from './ILogEntry';
+import {ILogEntry} from './interfaces/ILogEntry';
 
 export class HardCopyDocument extends AbstractDocument {
   print(): void {
