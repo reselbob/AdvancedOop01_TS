@@ -4,7 +4,7 @@
   "description": "A project that describes some advanced object oriented programming techniques using TypeScript",
   "main": "./src/app.ts",
   "scripts": {
-    "start": "npx ts-node ./src/app.ts",
+    "start": "npx ts-node ./src/documentsApp.ts",
     "test": "test",
     "lint": "gts lint",
     "clean": "gts clean",
